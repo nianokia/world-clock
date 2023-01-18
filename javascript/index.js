@@ -35,13 +35,14 @@ setInterval(updateTime, 1000);
 
 function updateLocation(event) {
   let locationTimeZone = event.target.value;
-  if (locationTimeZone === "current") {
-    locationTimeZone = moment.tz.guess();
-  }
-  let locationName = locationTimeZone.replace("_", " ").split("/")[1];
-  let locationTime = moment().tz(locationTimeZone);
-  let locationsElement = document.querySelector("#cities");
-  locationsElement.innerHTML = `
+  if (event.target.value.length > 0) {
+    if (locationTimeZone === "current") {
+      locationTimeZone = moment.tz.guess();
+    }
+    let locationName = locationTimeZone.replace("_", " ").split("/")[1];
+    let locationTime = moment().tz(locationTimeZone);
+    let locationsElement = document.querySelector("#cities");
+    locationsElement.innerHTML = `
     <div class="city">
       <div>
         <h2>${locationName}</h2>
@@ -53,6 +54,7 @@ function updateLocation(event) {
     </div>
     <div class="back-to-all-cities"><a href="/">Back to all cities</a></div>
     `;
+  }
 }
 
 let locationSelectElement = document.querySelector("#location");
