@@ -41,6 +41,7 @@ function updateLocation(event) {
           "h:mm:ss"
         )} <small>${locationTime.format("a")}</small></div>
     </div>
+    <div><a href="/">Back to all cities</a></div>
     `;
 }
 

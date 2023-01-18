@@ -8,17 +8,6 @@ h1 {
   font-size: 42px;
 }
 
-h1 a {
-  color: black;
-  text-decoration: none;
-  transition: all 50ms ease-in-out;
-}
-
-h1 a:hover {
-  color: rgba(0, 0, 0, 0.7);
-  text-decoration: underline;
-}
-
 select {
   display: block;
   width: 100%;
