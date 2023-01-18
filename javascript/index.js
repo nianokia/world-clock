@@ -9,6 +9,16 @@ function updateTime() {
     "h:mm:ss"
   )} <small>${losAngelesTime.format("a")}</small>`;
 
+  let parisElement = document.querySelector("#paris");
+  let parisDateElement = parisElement.querySelector(".date");
+  let parisTimeElement = parisElement.querySelector(".time");
+  let parisTime = moment().tz("Europe/Paris");
+
+  parisDateElement.innerHTML = parisTime.format("MMMM Do, YYYY");
+  parisTimeElement.innerHTML = `${parisTime.format(
+    "h:mm:ss"
+  )} <small>${parisTime.format("a")}</small>`;
+
   let hongKongElement = document.querySelector("#hong-kong");
   let hongKongDateElement = hongKongElement.querySelector(".date");
   let hongKongTimeElement = hongKongElement.querySelector(".time");
@@ -41,7 +51,7 @@ function updateLocation(event) {
           "h:mm:ss"
         )} <small>${locationTime.format("a")}</small></div>
     </div>
-    <div><a href="/">Back to all cities</a></div>
+    <div class="back-to-all-cities"><a href="/">Back to all cities</a></div>
     `;
 }
 
