@@ -22,3 +22,24 @@ function updateTime() {
 
 updateTime();
 setInterval(updateTime, 1000);
+
+function updateLocation(event) {
+  let locationTimeZone = event.target.value;
+  let locationName = locationTimeZone.replace("_", " ").split("/")[1];
+  let locationTime = moment().tz(locationTimeZone);
+  let locationsElement = document.querySelector("#cities");
+  locationsElement.innerHTML = `
+    <div class="city">
+      <div>
+        <h2>${locationName}</h2>
+          <div class="date">${locationTime.format("MMMM Do, YYYY")}</div>
+      </div>
+        <div class="time">${locationTime.format(
+          "h:mm:ss"
+        )} <small>${locationTime.format("a")}</small></div>
+    </div>
+    `;
+}
+
+let locationSelectElement = document.querySelector("#location");
+locationSelectElement.addEventListener("change", updateLocation);
